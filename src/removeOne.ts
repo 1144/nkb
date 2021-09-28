@@ -1,6 +1,6 @@
-type Predicate = (value: any, index: number, obj: any[]) => boolean
+import { Predicate } from './_type'
 
-/*--
+/**-
   删除一个符合判定条件的元素，返回被删除的元素，找不到时返回`undefined`
   -p arr 源数组
   -p predicate 判断函数，判断是否为要找的元素，接受3个参数：1 当前元素，2 当前下标，3 源数组；或目标 key

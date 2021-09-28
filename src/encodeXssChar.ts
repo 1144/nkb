@@ -9,7 +9,6 @@
     encodeXssChar(code) // => &lt;script data-ng=&quot;1&quot;&gt;alert(1);&lt;/script&gt;
 */
 export default function encodeXssChar(str: string) {
-  // typeof str === 'string' || (str = String(str))
   const len = str.length
   let res = ''
   for (let i = 0, c; i < len; i++) {
