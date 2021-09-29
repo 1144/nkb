@@ -7,7 +7,7 @@ const Fs = require('fs')
 const Path = require('path')
 const packageJson = require('../package.json')
 
-function prepare(name) {
+function prepare(name, type) {
   const dir = Path.join(__dirname, '../' + name + '/')
   try {
     Fs.readdirSync(dir).forEach(filename => {
@@ -23,10 +23,10 @@ function prepare(name) {
   delete newPackage.scripts
   delete newPackage.devDependencies
   newPackage.name = name
-  newPackage.type = name === '1kb' ? 'module' : 'commonjs'
+  newPackage.type = type
   const content = JSON.stringify(newPackage, null, 2) + '\n'
   Fs.writeFileSync(dir + 'package.json', content, 'utf-8')
 }
 
-prepare('1kb')
-prepare('2kb')
+prepare('1kb', 'module')
+prepare('2kb', 'commonjs')

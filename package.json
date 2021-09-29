@@ -2,15 +2,16 @@
   "name": "nkb",
   "version": "0.4.2",
   "description": "function library, each function is a few KB in size",
+  "type": "module",
   "types": "./*.d.ts",
   "scripts": {
     "build": "yarn prepare && yarn build:1kb && yarn build:2kb",
     "build:1kb": "tsc && js-beautify ./1kb/*.js -s 2 -r -n -q && yarn translate",
     "build:2kb": "rollup ./1kb/*.js --config rollup.config.js --silent",
     "release": "cd 1kb && npm publish && cd ../2kb && npm publish",
-    "prepare": "node ./script/prepare.js",
-    "translate": "node ./script/translateComment.js",
-    "test": "node ./test/test.js"
+    "prepare": "node script/prepare.cjs",
+    "translate": "node script/translateComment.cjs",
+    "test": "tsc && mocha test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/1144/nkb#readme",
   "devDependencies": {
     "js-beautify": "^1.14.0",
+    "mocha": "^9.1.2",
     "mokdoc": "^0.2.0",
     "rollup": "^2.56.3"
   }

@@ -14,7 +14,7 @@
       foo(n++)
     }, 20)
 */
-function throttle(fn: Function, wait: number) {
+export default function throttle(fn: Function, wait: number) {
   let timer = 0
   let previous = 0
 
