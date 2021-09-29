@@ -6,8 +6,9 @@
   "types": "./*.d.ts",
   "scripts": {
     "build": "yarn prepare && yarn build:1kb && yarn build:2kb",
-    "build:1kb": "tsc && js-beautify ./1kb/*.js -s 2 -r -n -q && yarn translate",
-    "build:2kb": "rollup ./1kb/*.js --config rollup.config.js --silent",
+    "build:1kb": "tsc && rm 1kb/_type.js && yarn beautify && yarn translate",
+    "build:2kb": "rollup 1kb/*.js --config rollup.config.js --silent",
+    "beautify": "js-beautify 1kb/*.js -s 2 -r -n -q",
     "release": "cd 1kb && npm publish && cd ../2kb && npm publish",
     "prepare": "node script/prepare.cjs",
     "translate": "node script/translateComment.cjs",
