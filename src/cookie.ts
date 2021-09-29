@@ -14,7 +14,7 @@ const rightSpaces = /\s+$/
 let _domain = document.domain
 
 /**-
-  cookie操作对象。
+  cookie操作对象
   -as cookie
   -note 服务端不可用
   -eg
