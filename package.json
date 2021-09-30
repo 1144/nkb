@@ -12,7 +12,7 @@
     "release": "cd 1kb && npm publish && cd ../2kb && npm publish",
     "prepare": "node script/prepare.cjs",
     "translate": "node script/translateComment.cjs",
-    "test": "tsc && mocha test/*.test.js"
+    "test": "mocha test/*.test.js"
   },
   "repository": {
     "type": "git",
