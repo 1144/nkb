@@ -6,7 +6,7 @@
   -note 月份用`M`或`m`标识，分钟用`I`标识
   -rel [0, formatDuration] 把时间长度转换成指定格式的时间
   -eg
-    formatTime(new Date(), 'Y-M-D H:I:S') // "2015-07-15 16:49:25"
+    formatTime(new Date(), 'Y-M-D H:I:S') // => '2015-07-15 16:49:25'
 */
 
 const methods = {

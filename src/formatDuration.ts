@@ -9,16 +9,18 @@ const	{ floor } = Math
   -note 最大单位只到天（即D），没有到月
   -rel [0, formatTime] 把时间点格式化成`Y-M-D H:I:S`格式的字符串
   -eg
-    formatDuration(3615, '<p>H小时I分钟S秒</p>'); //<p>01小时00分钟15秒</p>
-    formatDuration(3615, '<p>h小时i分钟s秒</p>'); //<p>1小时0分钟15秒</p>
-    formatDuration(90015, '<p>d天h小时i分钟s秒</p>'); //<p>1天1小时0分钟15秒</p>
+    formatDuration(3615, 'H小时I分钟S秒') // => 01小时00分钟15秒
+    formatDuration(3615, 'h小时i分钟s秒') // => 1小时0分钟15秒
+    formatDuration(90015, 'd天h小时i分钟s秒') // => 1天1小时0分钟15秒
 */
 export default function formatDuration(time: number, format: string) {
-  // D: '00', H: '00', I: '00', S: '00', d: '0', h: '0', i: '0', s: '0'
-  const data: JSON = {}
+  const data: JSON = {
+    D: '00', H: '00', I: '00', S: '00', d: '0', h: '0', i: '0', s: '0'
+  }
   let x
 
-  if (time >= 86400) { // 24*60*60 = 86400
+  // 24 * 60 * 60 = 86400
+  if (time >= 86400) {
     x = floor(time / 86400)
     data.D = data.d = String(x)
     x < 10 && (data.D = '0' + x)
@@ -27,13 +29,13 @@ export default function formatDuration(time: number, format: string) {
   if (time >= 3600) {
     x = floor(time / 3600)
     data.H = data.h = String(x)
-    x<10 && (data.H = '0' + x)
+    x < 10 && (data.H = '0' + x)
     time %= 3600
   }
   if (time > 59) {
     x = floor(time / 60)
     data.I = data.i = String(x)
-    x<10 && (data.I = '0' + x)
+    x < 10 && (data.I = '0' + x)
     time %= 60
   }
   if (time > 0) {
