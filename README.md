@@ -1,11 +1,11 @@
 # nkb
 
-function library, each function is a few KB in size.
+Function library, each function is a few KB in size.
 
 ## 1kb
 
-Built using the ESModule specification.
+Built using ESModule specification.
 
 ## 2kb
 
-Built using the CommonJS specification.
+Built using CommonJS specification.
