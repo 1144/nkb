@@ -3,7 +3,7 @@
   -p time 时间点，单位为秒；默认当前时间点
   -eg
     getDayZero()
-    getDayZero(1538159538) // => 1538150418
+    getDayZero(1538159538) // => 1538150400
 */
 export default function getDayZero(time?: number) {
   const t = time ? new Date(time * 1000) : new Date()

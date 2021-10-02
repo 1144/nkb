@@ -1,11 +1,11 @@
-import mbClip from './mbClip'
+import mbClip from './mbClip.js'
 
 interface Options {
   /** 值分隔符 */
   delimiter?: string | RegExp
   /** 值处理器 */
   valueHandler?: Function
-  /** 值长度限制，没有值处理器时才生效 */
+  /** 值长度限制，没有值处理器时才生效；全角符号算2个单位 */
   valueLimit?: number
   /** 返回数组长度限制 */
   limit?: number
@@ -21,10 +21,12 @@ const regDelimiter = /,|，/
   -p options 可选项：
     delimiter 分隔符，默认为中文逗号、英文逗号、换行符；
     valueHandler 值处理器；
-    valueLimit 值长度限制，没有值处理器时才生效；
+    valueLimit 值长度限制，没有值处理器时才生效，全角符号算2个单位；
     limit 返回数组的长度限制
   -eg
-    splitValues('工作，生活，，学习，') // => ["工作", "生活", "学习"]
+    splitValues('工作，生活，学习') // => ['工作', '生活', '学习']
+    splitValues('工作，生活，学习', { limit: 2 }) // => ['工作', '生活']
+    splitValues('1-2-3', { delimiter: '-' }) // => ['1', '2', '3']
 */
 export default function splitValues(values: string, options = <Options>{}) {
   if (!values) {

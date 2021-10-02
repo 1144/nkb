@@ -1,4 +1,4 @@
-import removeOne from './removeOne'
+import removeOne from './removeOne.js'
 
 /**-
   将一个值添加到数组末尾，并删除数组里之前已有的与之相等的元素
@@ -10,8 +10,11 @@ import removeOne from './removeOne'
   -eg
     uniquePush([1, 3, 2], 3) // => [1, 2, 3]
     uniquePush([1, 2, 3, 5], 6, 4) // => [2, 3, 5, 6]
-    uniquePush([{ id: 1 }, { id: 2 }], { id: 3 }, 10, 'id') // => [{ id: 1 }, { id: 2 }, { id: 3 }]
-    uniquePush([{ id: 1 }, { id: 2 }], { id: 1 }, 10, 'id') // => [{ id: 2 }, { id: 1 }]
+    uniquePush([{ id: 1 }, { id: 2 }], { id: 3 }, 10, 'id')
+    // => [{ id: 1 }, { id: 2 }, { id: 3 }]
+
+    uniquePush([{ id: 1 }, { id: 2 }], { id: 1 }, 10, 'id')
+    // => [{ id: 2 }, { id: 1 }]
 */
 export default function uniquePush(arr: any[], item: any, limit?: number, predicateKey?: string) {
   predicateKey ? removeOne(arr, predicateKey, item[predicateKey]) : removeOne(arr, li => li === item)

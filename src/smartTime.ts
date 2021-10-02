@@ -1,16 +1,16 @@
 const notNum = /\D/g
 
 /**-
-  智能格式化时间，格式化为 08:30 这样的字符串
-  -p str 简化的时间字符串
+  智能格式化时间，格式化为 08:30 这样的字符串，非数字字符会被忽略
+  -p short 简化的时间字符串
   -eg
     smartTime('0910') // => 09:10
     smartTime('030') // => 00:30
     smartTime('810') // => 08:10
     smartTime('9') // => 09:00
 */
-export default function smartTime(str: string) {
-  str = str.replace(notNum, '')
+export default function smartTime(short: string) {
+  const str = short.replace(notNum, '')
   const length = str.length
 
   // 3 位以上，例如 0910

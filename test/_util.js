@@ -18,4 +18,8 @@ export function test(actual, expected, desc = defaultDesc) {
   }
 }
 
+export function deletePrototype(obj) {
+  return Object.assign(Object.create(null), obj)
+}
+
 export default {}
