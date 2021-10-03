@@ -5,6 +5,7 @@
     mbLength('中国人') // => 6
     mbLength('china') // => 5
     mbLength('中国ren') // => 7
+    mbLength('🎉') // => 4
 */
 export default function mbLength(str: string) {
   let res = 0

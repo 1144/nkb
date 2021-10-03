@@ -6,7 +6,7 @@ import removeOne from './removeOne.js'
   -p arr 目标数组
   -p item 需要添加的元素
   -p limit 添加后，如果数组长度超过这个限制，则移除数组开头的元素
-  -p predicateKey 根据这个key在目标数组里查找是否已经存在item
+  -p predicateKey 根据这个key在目标数组里查找是否已经存在item；默认比较整个元素
   -eg
     uniquePush([1, 3, 2], 3) // => [1, 2, 3]
     uniquePush([1, 2, 3, 5], 6, 4) // => [2, 3, 5, 6]
