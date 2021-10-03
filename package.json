@@ -1,6 +1,6 @@
 {
   "name": "nkb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Function library, each function is a few KB in size",
   "type": "module",
   "types": "./*.d.ts",
@@ -10,7 +10,6 @@
     "build:1kb": "tsc && rm 1kb/_type.js && yarn beautify && yarn translate",
     "build:2kb": "rollup 1kb/*.js --config rollup.config.js --silent",
     "beautify": "js-beautify 1kb/*.js -s 2 -r -n -q",
-    "release": "cd 1kb && npm publish && cd ../2kb && npm publish",
     "translate": "node script/translateComment.cjs",
     "test": "mocha test/*.test.js"
   },
