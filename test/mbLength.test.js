@@ -18,4 +18,9 @@ describe('mbLength', () => {
     7
   )
 
+  test(
+    mbLength('🎉'),
+    4
+  )
+
 })

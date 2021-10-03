@@ -13,6 +13,11 @@ describe('kv', () => {
     { a: '1', b: '2', c: null }
   )
 
+  test(
+    Kv.parse(''),
+    {}
+  )
+
   const data = { a: 1, b: 0, c: 'x-x', d: null, e: undefined, f: '' }
 
   test(
