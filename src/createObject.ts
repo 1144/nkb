@@ -1,3 +1,5 @@
+import { JSON } from './_type'
+
 type ValueProducer = (key: any, keys: any[]) => any
 
 /**-
@@ -13,7 +15,7 @@ type ValueProducer = (key: any, keys: any[]) => any
     createObject([1, 2, 3, 4], (key) => key < 3 ? true : undefined)
     // => { 1: true, 2: true }
 */
-export default function createObject(keys: any[], valueProducer?: ValueProducer) {
+export default function createObject(keys: any[], valueProducer?: ValueProducer) : JSON {
   const object = Object.create(null)
 
   if (valueProducer) {

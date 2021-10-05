@@ -9,7 +9,7 @@
     unique([{ a: 1, b: 3 }, { a: 2, b: 1 }, { a: 5, b: 1 }], 'b')
     // => [{ a: 1, b: 3 }, { a: 2, b: 1 }]
 */
-export default function unique(arr: any[], prop: string) {
+export default function unique(arr: any[], prop?: string) {
   const res = []
   const map = Object.create(null)
   const len = arr.length
