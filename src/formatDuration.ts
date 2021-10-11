@@ -4,7 +4,7 @@ const	{ floor } = Math
 
 /**-
   把时间长度转换成指定格式的时间，格式变量包括`DHISdhis`，大写则补齐两位
-  -p time 时间长度，单位秒
+  -p seconds 时间长度，单位秒
   -p format 时间格式，如 H:I:S
   -note 最大单位只到天（即D），没有到月
   -rel [0, formatTime] 把时间点格式化成`Y-M-D H:I:S`格式的字符串
@@ -13,10 +13,11 @@ const	{ floor } = Math
     formatDuration(3615, 'h小时i分钟s秒') // => 1小时0分钟15秒
     formatDuration(90015, 'd天h小时i分钟s秒') // => 1天1小时0分钟15秒
 */
-export default function formatDuration(time: number, format: string) {
+export default function formatDuration(seconds: number, format: string) {
   const data: JSON = {
     D: '00', H: '00', I: '00', S: '00', d: '0', h: '0', i: '0', s: '0'
   }
+  let time = floor(seconds)
   let x
 
   // 24 * 60 * 60 = 86400
