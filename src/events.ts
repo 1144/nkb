@@ -2,9 +2,6 @@ import { JSON } from './_type'
 import removeAll from './removeAll.js'
 import removeOne from './removeOne.js'
 
-// 全局递增的处理函数id
-let handlerId = 1
-
 /**-
   事件对象
   通过enable让一个对象或类支持事件功能后，它们将具有EventEmitter的方法。
@@ -25,9 +22,7 @@ const EventEmitter: JSON = {
   on(type: string, handler: Function, once?: boolean, mid?: string) {
     const index = type.indexOf('#')
     const realType = index > 0 ? type.slice(0, index) : type
-    const id = handlerId++
     const data = {
-      id,
       name: index > 0 ? type.slice(index) : '',
       once: once || false,
       fn: handler,
@@ -35,7 +30,7 @@ const EventEmitter: JSON = {
     }
     ;(this._EVENTS_[realType] || (this._EVENTS_[realType] = [])).push(data)
 
-    return () => this.off(realType, id)
+    return () => this.off(realType, handler)
   },
   /**-
     替换模式绑定事件：如果已经绑定过，则移出之前的绑定
@@ -55,13 +50,13 @@ const EventEmitter: JSON = {
   /**-
     解绑事件
     -p type 事件类型
-    -p id 处理函数id，可选
+    -p handler 事件处理函数，可选
   */
-  off(type: string, id?: number) {
+  off(type: string, handler?: Function) {
     const events = this._EVENTS_
-    if (id) {
+    if (handler) {
       const hanlders = events[type]
-      hanlders && removeOne(hanlders, id)
+      hanlders && removeOne(hanlders, handler, 'fn')
     } else {
       const index = type.indexOf('#')
       if (index > 0) {
