@@ -13,6 +13,11 @@ describe('removeOne', () => {
     { id: 3 }
   )
 
+  test(
+    removeOne([{ id: 1 }, { id: 3 }], 4),
+    undefined
+  )
+
   const data = [{ a: 1 }, { a: 3 }]
   test(
     removeOne(data, 3, 'a'),

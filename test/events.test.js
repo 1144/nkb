@@ -55,10 +55,20 @@ describe('Events', () => {
     actual.onFFoo = 1
   })
 
+  const offG = Ge.on('g', () => {
+    // shound never here
+    actual.onG = 1
+  })
+  Ge.on('g', () => {
+    actual.onAnotherG = 1
+  })
+  offG()
+
   Ge.emit('aaaa', 2)
   Ge2.emit('c', 'dddddd')
   Ge.emit('e')
   Ge.emit('f#foo')
+  Ge.emit('g')
 
   const expected = {
     onA: 1,
@@ -71,6 +81,8 @@ describe('Events', () => {
     // onE: undefined,
     // onF: undefined,
     onFFoo: 1,
+    // onG: undefined,
+    onAnotherG: 1,
   }
   test(actual, expected)
 
