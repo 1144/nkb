@@ -1,6 +1,6 @@
 # nkb
 
-Function library, each function is a few KB in size.
+JS function library, each function is a few KB in size.
 
 ## 1kb
 
