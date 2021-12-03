@@ -6,6 +6,64 @@ JS function library, each function is a few KB in size.
 
 Built using ESModule specification.
 
+### Setup
+
+`yarn add 1kb`
+
+Or
+
+`npm install 1kb`
+
+### Demo
+
+```js
+import now from '1kb/now'
+import uniquePush from '1kb/uniquePush'
+import mapIds from '1kb/mapIds'
+
+// 获取当前时间，单位`秒`
+now() // => 1607825318
+
+// 将一个值添加到数组末尾，并删除数组里之前已有的与之相等的元素
+uniquePush([1, 3, 2], 3, null) // => [1, 2, 3]
+// 默认比较`id`
+uniquePush([{ id: 1 }, { id: 2 }], { id: 1 }) // => [{ id: 2 }, { id: 1 }]
+
+// 把英文逗号连接的 id 字符串，根据给定的 Map 对象映射为对应的 title 字符串
+mapIds('1,2', { 1: '工作', 2: '生活' }) // => '工作/生活'
+// 指定映射后的连接符
+mapIds('1,2', { 1: '工作', 2: '生活' }, ',') // => '工作,生活'
+```
+
 ## 2kb
 
 Built using CommonJS specification.
+
+### Setup
+
+`yarn add 2kb`
+
+Or
+
+`npm install 2kb`
+
+### Demo
+
+```js
+const now = require('2kb/now')
+const uniquePush = require('2kb/uniquePush')
+const mapIds = require('2kb/mapIds')
+
+// 获取当前时间，单位`秒`
+now() // => 1607825318
+
+// 将一个值添加到数组末尾，并删除数组里之前已有的与之相等的元素
+uniquePush([1, 3, 2], 3, null) // => [1, 2, 3]
+// 默认比较`id`
+uniquePush([{ id: 1 }, { id: 2 }], { id: 1 }) // => [{ id: 2 }, { id: 1 }]
+
+// 把英文逗号连接的 id 字符串，根据给定的 Map 对象映射为对应的 title 字符串
+mapIds('1,2', { 1: '工作', 2: '生活' }) // => '工作/生活'
+// 指定映射后的连接符
+mapIds('1,2', { 1: '工作', 2: '生活' }, ',') // => '工作,生活'
+```
