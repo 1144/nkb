@@ -4,7 +4,6 @@ import formatTime from '../1kb/formatTime.js'
 describe('formatTime', () => {
   // Wed Sep 29 2021 11:02:30 GMT+0800 (中国标准时间)
   const date = new Date(1632884550730)
-  const second = 1632884550
 
   test(
     formatTime(date),
@@ -22,7 +21,12 @@ describe('formatTime', () => {
   )
 
   test(
-    formatTime(second),
+    formatTime(1632884550),
+    '2021-09-29 11:02:30'
+  )
+
+  test(
+    formatTime(1632884550111),
     '2021-09-29 11:02:30'
   )
 
