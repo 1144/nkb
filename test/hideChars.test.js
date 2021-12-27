@@ -24,7 +24,12 @@ describe('hideChars', () => {
   )
 
   test(
-    hideChars('138456', -2, NaN, '-'),
+    hideChars('138456', -2, 6, '-'),
+    '1384--'
+  )
+
+  test(
+    hideChars('138456', -2, undefined, '-'),
     '1384--'
   )
 
