@@ -1,6 +1,6 @@
 # 函数功能概述
 
-- **[cookie](https://github.com/1144/nkb/blob/main/src/cookie.ts)** cookie操作
+- [**cookie**](https://github.com/1144/nkb/blob/main/src/cookie.ts) Cookie 操作
 - [**createObject**](https://github.com/1144/nkb/blob/main/src/createObject.ts) 根据keys数组创建纯对象，以数组元素为key，值为valueProducer处理的结果
 - [**cut**](https://github.com/1144/nkb/blob/main/src/cut.ts) 把src字符串按target切段，忽略大小写，切段后返回的数组中包含匹配的字符串
 - [**debounce**](https://github.com/1144/nkb/blob/main/src/debounce.ts) 简易的函数防抖

@@ -2,7 +2,7 @@
   简易的函数防抖
   -p fn 目标函数
   -p wait 延迟多少毫秒
-  -p leading If passed, trigger the function on the leading edge, instead of the trailing
+  -p leading 是否在前侧执行函数，默认在后侧执行
   -r fn 已防抖处理的函数
   -eg
     const foo = debounce(function (a) {

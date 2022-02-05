@@ -4,7 +4,6 @@ import removeOne from './removeOne.js'
 
 /**-
   事件对象
-  通过enable让一个对象或类支持事件功能后，它们将具有EventEmitter的方法。
 */
 const EventEmitter: JSON = {
   // _EVENTS_: Object.create(null), // 事件池
@@ -122,6 +121,9 @@ const EventEmitter: JSON = {
   },
 }
 
+/**-
+  通过enable方法让一个对象或类支持事件功能后，它们将具有EventEmitter的方法
+*/
 export default {
   EventEmitter,
   /**-

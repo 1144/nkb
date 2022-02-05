@@ -1,20 +1,21 @@
 # nkb
 
-JS function library, each function is a few KB in size.
+简单易用的轻量级 JavaScript 函数库，大部分函数在构建压缩后小于 1KB 。
+按模块规范分为 1kb 和 2kb 。
 
 ## 1kb
 
-Built using ESModule specification.
+使用 ESModule 规范导出。
 
-### Setup
+### 安装
 
 `yarn add 1kb`
 
 Or
 
-`npm install 1kb`
+`npm i 1kb`
 
-### Demo
+### 示例
 
 ```js
 import now from '1kb/now'
@@ -37,15 +38,15 @@ mapIds('1,2', { 1: '工作', 2: '生活' }, ',') // => '工作,生活'
 
 ## 2kb
 
-Built using CommonJS specification.
+与 1kb 的区别仅仅是模块规范不同，2kb 使用 CommonJS 规范导出。
 
-### Setup
+### 安装
 
 `yarn add 2kb`
 
 Or
 
-`npm install 2kb`
+`npm i 2kb`
 
 ### Demo
 
@@ -67,3 +68,7 @@ mapIds('1,2', { 1: '工作', 2: '生活' }) // => '工作/生活'
 // 指定映射后的连接符
 mapIds('1,2', { 1: '工作', 2: '生活' }, ',') // => '工作,生活'
 ```
+
+## API 文档
+
+[使用文档](https://github.com/1144/nkb/tree/main/docs#readme)

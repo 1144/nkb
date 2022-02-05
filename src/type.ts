@@ -1,7 +1,7 @@
 const _toString = Object.prototype.toString
 
 /**-
-  Strict object type check. Only returns true for plain JavaScript objects.
+  判断一个值是否是纯 JavaScript 对象
   -p value 要判断的值
   -eg
     isPlainObject() // => false

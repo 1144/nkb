@@ -2,7 +2,7 @@ import { JSON } from './_type'
 import createObject from './createObject.js'
 
 /**-
-  从id字符串中获取有效的id，返回数组。返回数组id顺序跟list顺序一致。
+  从id字符串中获取有效的id，返回数组。返回数组id顺序跟list顺序一致
   -p ids 多个id组成的字符串，用英文逗号连接
   -p list 验证id是否有效的json对象数组，id是list中某个对象的id才视为有效
   -p key list中字段名不是'id'时，用key传入字段名

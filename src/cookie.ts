@@ -5,6 +5,7 @@ type CookieOption = {
   path?: string
   /** 过期时间：没有则是会话级；数字则表示多少小时后过期；或是一个时间对象；或是`forever`表示长期 */
   exp?: number | Date | 'forever'
+  samesite?: string | 'Lax'
   secure?: boolean
 }
 
@@ -14,11 +15,9 @@ const rightSpaces = /\s+$/
 let _domain = document.domain
 
 /**-
-  cookie操作对象
-  -as cookie
+  Cookie 操作对象
+  -as Cookie
   -note 服务端不可用
-  -eg
-    Cookie.setDomain('test.com')
 */
 export default {
   /**-
@@ -58,8 +57,8 @@ export default {
       String(value).replace(specChar, (c) => encodeURIComponent(c)) +
       (t && '; expires=' + t.toUTCString()) +
       '; domain=' + (opt.domain || _domain) + '; path=' + (opt.path || '/') +
-      '; SameSite=Lax' +
-      (opt.secure ? '; secure' : '');
+      '; samesite=' + (typeof opt.samesite === 'string' ? opt.samesite : 'Lax') +
+      (opt.secure ? '; secure' : '')
   },
   /**-
     读取cookie
@@ -86,6 +85,8 @@ export default {
   /**-
     设置存cookie的域，没有设置时默认使用 document.domain
     -p domain 存cookie的域
+    -eg
+      Cookie.setDomain('test.com')
   */
   setDomain(domain: string) {
     _domain = domain

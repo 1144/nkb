@@ -5,7 +5,7 @@ import { JSON } from './_type'
   -p ids id字符串，titleMap中不存在的id会被丢弃
   -p titleMap id为key，title为值
   -p joinChar 映射后的连接符，默认'/'
-  -r title 字符串
+  -r title拼接成的字符串
   -eg
     mapIds('1,2', { 1: '工作', 2: '生活' }) // => '工作/生活'
     mapIds('1,2', { 1: '工作', 2: '生活' }, ',') // => '工作,生活'
