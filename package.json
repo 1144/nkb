@@ -1,12 +1,12 @@
 {
   "name": "nkb",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "JS function library, each function is a few KB in size",
   "type": "module",
   "types": "./*.d.ts",
   "scripts": {
-    "prepare": "node script/prepare.cjs",
     "build": "yarn prepare && yarn build:1kb && yarn build:2kb",
+    "prepare": "node script/prepare.cjs",
     "build:1kb": "tsc && rm 1kb/_type.js && yarn beautify && yarn translate",
     "build:2kb": "rollup 1kb/*.js --config rollup.config.js --silent",
     "beautify": "js-beautify 1kb/*.js -s 2 -r -n -q",
