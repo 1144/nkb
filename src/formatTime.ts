@@ -21,7 +21,7 @@ const methods = {
 export default function formatTime(time: Date | number, format?: string) {
   const t = time instanceof Date ? time : new Date(time > 9e9 ? time : time * 1000)
 
-  return (format || 'Y-M-D H:I:S').replace(/[YMmDdHIS]/g, function (key) {
+  return (format || 'Y-M-D H:I:S').replace(/[YMmDdHIS]/g, key => {
     // @ts-ignore
     let val = t[methods[key.toLowerCase()]]()
     if (key === 'M' || key === 'm') { // 月份

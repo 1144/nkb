@@ -6,7 +6,6 @@ const srcDir = '../1kb/'
 const dir = Path.join(__dirname, srcDir)
 
 Fs.readdirSync(dir).forEach(filename => {
-  // if (filename.endsWith('.d.ts')) {
   if (filename.endsWith('.ts') || filename.endsWith('.js')) {
     const file = dir + filename
     const fc = Fs.readFileSync(file, 'utf-8')
