@@ -99,7 +99,7 @@ const EventEmitter: JSON = {
         handler = handlers[i]
         if (!handlerName || handler.name === handlerName) {
           hit = true
-          this.log(type, handler.mid, args)
+          this.log(type, handler.mid, args.slice())
           handler.fn.apply(this, args)
           if (handler.once) {
             // 删除只执行一次的，同时让循环“原地踏步”

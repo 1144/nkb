@@ -1,6 +1,6 @@
 {
   "name": "nkb",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "JS function library, each function is a few KB in size",
   "type": "module",
   "types": "./*.d.ts",
