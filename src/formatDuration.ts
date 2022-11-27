@@ -1,4 +1,4 @@
-import { JSON } from './_type'
+import { PureObject } from './_type'
 
 const	{ floor } = Math
 
@@ -14,7 +14,7 @@ const	{ floor } = Math
     formatDuration(90015, 'd天h小时i分钟s秒') // => 1天1小时0分钟15秒
 */
 export default function formatDuration(seconds: number, format: string) {
-  const data: JSON = {
+  const data: PureObject = {
     D: '00', H: '00', I: '00', S: '00', d: '0', h: '0', i: '0', s: '0'
   }
   let time = floor(seconds)

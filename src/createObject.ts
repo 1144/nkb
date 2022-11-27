@@ -1,4 +1,4 @@
-import { JSON } from './_type'
+import { PureObject } from './_type'
 
 type ValueProducer = (key: any, keys: any[]) => any
 
@@ -16,7 +16,7 @@ type ValueProducer = (key: any, keys: any[]) => any
     createObject([1, 2, 3, 4], (key) => key < 3 ? true : undefined)
     // => { 1: true, 2: true }
 */
-export default function createObject(keys: any[], valueProducer?: ValueProducer, prototype?: Object | null) : JSON {
+export default function createObject(keys: any[], valueProducer?: ValueProducer, prototype?: Object | null) : PureObject {
   const object = prototype === undefined ? {} : Object.create(prototype)
 
   if (valueProducer) {

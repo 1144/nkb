@@ -1,4 +1,4 @@
-import { JSON } from './_type'
+import { PureObject } from './_type'
 
 /**-
   更新列表中的某一条数据，成功则返回`true`，找不到目标数据则返回`false`
@@ -12,7 +12,7 @@ import { JSON } from './_type'
     updateOne([{ n: 1, title: 'foo' }, { n: 2, title: 'bar' }], { n: 1, title: 'yoo' }, 'n')
     // => true // 更新后列表：[{ n: 1, title: 'yoo' }, { n: 2, title: 'bar' }]
 */
-export default function updateOne(arr: JSON[], newItem: JSON, predicateKey = 'id') {
+export default function updateOne(arr: PureObject[], newItem: PureObject, predicateKey = 'id') {
   const originalItem = arr.find(item => item[predicateKey] === newItem[predicateKey])
 
   if (originalItem) {

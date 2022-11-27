@@ -2,7 +2,7 @@
  * 定义常用类型
  */
 
-/** JSON 对象 */
-export type JSON = {
+/** 纯对象 */
+export type PureObject = {
   [key: string]: any
 }

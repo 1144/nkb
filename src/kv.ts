@@ -1,4 +1,4 @@
-import { JSON } from './_type'
+import { PureObject } from './_type'
 
 /**-
   解析key-value字符串，或者将JS纯对象key-value化
@@ -16,7 +16,7 @@ export default {
       Kv.parse('a:1,b:2,c') // => { a: '1', b: '2', c: null }
   */
   parse(kvString: string, kvSeparator = ':', fieldSeparator = ',', valueHandler?: Function) {
-    const res: JSON = {}
+    const res: PureObject = {}
     const data = String(kvString).split(fieldSeparator)
     const len = data.length
     let i = 0, kv
@@ -40,7 +40,7 @@ export default {
     -eg
       Kv.stringify({ a: 1, b: 2, c: 'x-x' }) // => 'a:1,b:2,c:x-x'
   */
-  stringify(obj: JSON, kvSeparator = ':', fieldSeparator = ',', valueHandler?: Function) {
+  stringify(obj: PureObject, kvSeparator = ':', fieldSeparator = ',', valueHandler?: Function) {
     const res = []
     let k, v
 

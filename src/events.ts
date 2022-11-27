@@ -1,11 +1,11 @@
-import { JSON } from './_type'
+import { PureObject } from './_type'
 import removeAll from './removeAll.js'
 import removeOne from './removeOne.js'
 
 /**-
   事件对象
 */
-const EventEmitter: JSON = {
+const EventEmitter: PureObject = {
   // _EVENTS_: Object.create(null), // 事件池
   /**-
     绑定事件

@@ -1,4 +1,4 @@
-import { JSON } from './_type'
+import { PureObject } from './_type'
 
 /**-
   把英文逗号连接的 id 字符串，根据 titleMap 映射为对应的 title 字符串
@@ -11,7 +11,7 @@ import { JSON } from './_type'
     mapIds('1,2', { 1: '工作', 2: '生活' }, ',') // => '工作,生活'
     mapIds('2,3', { 1: '工作', 2: '生活' }, ',') // => '生活'
 */
-export default function mapIds(ids: string, titleMap: JSON, joinChar = '/') {
+export default function mapIds(ids: string, titleMap: PureObject, joinChar = '/') {
   const titles: string[] = []
 
   ids.split(',').forEach(id => {
