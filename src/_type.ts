@@ -6,3 +6,5 @@
 export type PureObject = {
   [key: string]: any
 }
+
+export type OnKey = string | number | null
