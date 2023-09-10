@@ -10,7 +10,7 @@ describe('kv', () => {
 
   test(
     Kv.parse('a:1,b:2,c'),
-    { a: '1', b: '2', c: null }
+    { a: '1', b: '2', c: '' }
   )
 
   test(
@@ -22,17 +22,17 @@ describe('kv', () => {
 
   test(
     Kv.stringify(data),
-    'a:1,b:0,c:x-x'
+    'a:1,b:0,c:x-x,d:null,f:'
   )
 
   test(
-    Kv.stringify(data, '>'),
-    'a>1,b>0,c>x-x'
+    Kv.stringify(data, '='),
+    'a=1,b=0,c=x-x,d=null,f='
   )
 
   test(
-    Kv.stringify(data, '>', '|'),
-    'a>1|b>0|c>x-x'
+    Kv.stringify(data, '=', '&'),
+    'a=1&b=0&c=x-x&d=null&f='
   )
 
 })
