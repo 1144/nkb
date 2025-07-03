@@ -16,6 +16,11 @@ describe('formatTime', () => {
   )
 
   test(
+    formatTime(date, 'M-D h:i'),
+    '09-29 11:2'
+  )
+
+  test(
     formatTime(date, 'Y年m月d日'),
     '2021年9月29日'
   )
